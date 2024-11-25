@@ -1,10 +1,11 @@
-import { Spinner } from "@chakra-ui/react";
+import { Spinner } from '@chakra-ui/react'
+import MainContainer from '../components/MainContainer'
 
 export default function Index() {
   return (
-    <div>
+    <MainContainer>
       <h1>Hello World!</h1>
       <Spinner />
-    </div>
-  );
+    </MainContainer>
+  )
 }
