@@ -1,12 +1,12 @@
 import { Container, Heading, VStack } from '@chakra-ui/react'
 import { getAllProjectIds, getProjectData } from '../../lib/projects'
-import Link from 'next/link'
+import InternalLink from '../../components/InternalLink'
 
 export default function Project({ projectData }) {
   return (
     <Container p={8}>
       <VStack spacing={4} align="start">
-        <Link href="/projects">← Back to projects</Link>
+        <InternalLink href="/projects">← Back to projects</InternalLink>
         <Heading as="h1" size="xl">
           {projectData.title}
         </Heading>
