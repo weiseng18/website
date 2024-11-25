@@ -3,7 +3,7 @@ import MainContainer from '../components/MainContainer'
 
 export default function Index() {
   return (
-    <MainContainer>
+    <MainContainer page="index">
       <h1>Hello World!</h1>
       <Spinner />
     </MainContainer>
