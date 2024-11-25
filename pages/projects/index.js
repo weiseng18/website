@@ -1,17 +1,24 @@
-import { Text, VStack } from '@chakra-ui/react'
+import { Box, HStack, Text, VStack } from '@chakra-ui/react'
 import MainContainer from '../../components/MainContainer'
-import { getAllProjectIds } from '../../lib/projects'
+import { getProjectsDataSortedByStartDate } from '../../lib/projects'
 import InternalLink from '../../components/InternalLink'
 
-export default function Projects({ projectIds }) {
+export default function Projects({ projectsData }) {
   return (
     <MainContainer page="projects">
-      <Text>List of projects and links:</Text>
-      <VStack align="start" mt={2}>
-        {projectIds.map((id) => (
-          <InternalLink key={id} href={`/projects/${id}`}>
-            {id}
-          </InternalLink>
+      <Text>List of projects and links (sorted descending by start date):</Text>
+      <VStack align="start" py={2}>
+        {projectsData.map((project) => (
+          <Box w="100%" pt={4}>
+            <HStack spacing={1}>
+              <InternalLink key={project.id} href={`/projects/${project.id}`}>
+                <Text fontWeight="600">{project.title}</Text>
+              </InternalLink>
+              <Text>
+                ({project.dateStart} - {project.dateEnd})
+              </Text>
+            </HStack>
+          </Box>
         ))}
       </VStack>
     </MainContainer>
@@ -19,10 +26,10 @@ export default function Projects({ projectIds }) {
 }
 
 export async function getStaticProps() {
-  const res = await getAllProjectIds()
+  const projectsData = await getProjectsDataSortedByStartDate()
   return {
     props: {
-      projectIds: res.map((r) => r.params.id),
+      projectsData,
     },
   }
 }
