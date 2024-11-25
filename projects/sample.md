@@ -2,7 +2,7 @@
 title: Sample
 ---
 
-# Description
+### Description
 
 This is a sample project.
 

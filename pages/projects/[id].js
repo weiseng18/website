@@ -10,8 +10,11 @@ export default function Project({ projectData }) {
         <Heading as="h1" size="xl">
           {projectData.title}
         </Heading>
-        <div dangerouslySetInnerHTML={{ __html: projectData.contentHtml }} />
       </VStack>
+      <div
+        id="markdown-root"
+        dangerouslySetInnerHTML={{ __html: projectData.contentHtml }}
+      />
     </Container>
   )
 }

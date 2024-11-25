@@ -1,0 +1,110 @@
+/* source: https://gist.github.com/splorp/4269641 */
+
+#markdown-root body {
+  background-color: #fff;
+  color: #333;
+  font:
+    15px Helvetica,
+    arial,
+    freesans,
+    clean,
+    sans-serif;
+  word-wrap: break-word;
+  line-height: 1.7;
+  padding: 0 20px 20px 20px;
+  width: 722px;
+  -webkit-font-smoothing: antialiased;
+}
+
+#markdown-root a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+#markdown-root a:hover {
+  text-decoration: underline;
+}
+
+#markdown-root p,
+#markdown-root blockquote,
+#markdown-root ul,
+#markdown-root ol,
+#markdown-root dl,
+#markdown-root table,
+#markdown-root pre {
+  margin: 15px 0;
+}
+
+#markdown-root ul,
+#markdown-root ol {
+  padding-left: 30px;
+}
+
+#markdown-root h1 {
+  border-bottom: 1px solid #ddd;
+  color: #000;
+  font-size: 2.5em;
+}
+
+#markdown-root h2 {
+  border-bottom: 1px solid #eee;
+  color: #000;
+  font-size: 2em;
+}
+
+#markdown-root h3 {
+  font-size: 1.5em;
+}
+
+#markdown-root h4 {
+  font-size: 1.2em;
+}
+
+#markdown-root h5 {
+  font-size: 1em;
+}
+
+#markdown-root h6 {
+  color: #777;
+  font-size: 1em;
+}
+
+#markdown-root h1,
+#markdown-root h2,
+#markdown-root h3,
+#markdown-root h4,
+#markdown-root h5,
+#markdown-root h6 {
+  font-weight: bold;
+  line-height: 1.7;
+  margin: 1em 0 15px 0;
+}
+
+#markdown-root h1 + p,
+#markdown-root h2 + p,
+#markdown-root h3 + p {
+  margin-top: 10px;
+}
+
+#markdown-root img {
+  max-width: 100%;
+}
+
+#markdown-root code,
+#markdown-root pre {
+  background-color: #f8f8f8;
+  border-radius: 3px;
+  border: 1px solid #ddd;
+  font-family: Consolas, 'Liberation Mono', Courier, monospace;
+  font-size: 12px;
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: pre;
+}
+
+#markdown-root > pre code {
+  border: none;
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+}
