@@ -9,9 +9,9 @@ export default function Projects({ projectsData }) {
       <Text>List of projects and links (sorted descending by start date):</Text>
       <VStack align="start" py={2}>
         {projectsData.map((project) => (
-          <Box w="100%" pt={4}>
+          <Box w="100%" pt={4} key={project.id}>
             <HStack spacing={1}>
-              <InternalLink key={project.id} href={`/projects/${project.id}`}>
+              <InternalLink href={`/projects/${project.id}`}>
                 <Text fontWeight="600">{project.title}</Text>
               </InternalLink>
               <Text>
