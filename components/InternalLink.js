@@ -4,7 +4,10 @@ import Link from 'next/link'
 const InternalLink = ({ href, children }) => {
   return (
     <Link href={href}>
-      <Box _hover={{ cursor: 'pointer', textDecoration: 'underline' }}>
+      <Box
+        color="blue.500"
+        _hover={{ cursor: 'pointer', textDecoration: 'underline' }}
+      >
         {children}
       </Box>
     </Link>
