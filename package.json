@@ -1,0 +1,8 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:weiseng18/website.git",
+  "author": "weiseng18 <tws.hci@gmail.com>",
+  "license": "MIT"
+}
