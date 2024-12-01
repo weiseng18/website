@@ -1,6 +1,7 @@
 import { Container, Divider, Heading, Text, VStack } from '@chakra-ui/react'
 import { getAllProjectIds, getProjectData } from '../../lib/projects'
 import InternalLink from '../../components/InternalLink'
+import ProjectTagContainer from '../../components/ProjectTagContainer'
 
 export default function Project({ projectData }) {
   return (
@@ -10,11 +11,10 @@ export default function Project({ projectData }) {
         <Heading as="h1" size="xl">
           {projectData.title}
         </Heading>
-        <Text>
-          Project date: {projectData.dateStart} - {projectData.dateEnd}
-        </Text>
+        <Text>Last updated: {projectData.lastUpdated}</Text>
+        <ProjectTagContainer tags={projectData.tags} isOdd={false} />
       </VStack>
-      <Divider my={8} />
+      <Divider my={4} />
       <div
         id="markdown-root"
         dangerouslySetInnerHTML={{ __html: projectData.contentHtml }}
