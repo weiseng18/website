@@ -6,8 +6,7 @@ import html from 'remark-html'
 
 type ProjectData = {
   id: string
-  dateStart: string
-  dateEnd: string
+  lastUpdated: string
 }
 
 const projectsDirectory = path.join(process.cwd(), 'projects')
@@ -39,9 +38,9 @@ export async function getProjectsDataSortedByStartDate() {
     } as ProjectData
   })
 
-  // Sort projects by dateStart
+  // Sort projects by lastUpdated in descending order
   return data.sort((a, b) => {
-    if (a.dateStart < b.dateStart) {
+    if (a.lastUpdated < b.lastUpdated) {
       return 1
     } else {
       return -1

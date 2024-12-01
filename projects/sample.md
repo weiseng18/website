@@ -1,7 +1,6 @@
 ---
 title: Sample
-dateStart: March 2020
-dateEnd: June 2020
+lastUpdated: June 2020
 ---
 
 ### Description
