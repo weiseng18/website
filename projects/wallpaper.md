@@ -1,0 +1,10 @@
+---
+title: wallpaper
+lastUpdated: July 2023
+---
+
+### Description
+
+Given a square image, the script creates a wallpaper with an upscaled, blurred version of the image in the background and an upscaled version of the image in the foreground.
+
+The motivation for this project was because I found some cool looking music album art but they were square, but most screens are typically not square. MATLAB was the language of choice because in that semester I was taking [CS2108 Introduction to Media Computing](https://nusmods.com/courses/CS2108/introduction-to-media-computing) that used MATLAB.
