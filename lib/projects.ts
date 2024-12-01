@@ -4,6 +4,12 @@ import matter from 'gray-matter'
 import { remark } from 'remark'
 import html from 'remark-html'
 
+type ProjectData = {
+  id: string
+  dateStart: string
+  dateEnd: string
+}
+
 const projectsDirectory = path.join(process.cwd(), 'projects')
 
 export async function getAllProjectIds() {
@@ -30,7 +36,7 @@ export async function getProjectsDataSortedByStartDate() {
     return {
       id,
       ...content.data,
-    }
+    } as ProjectData
   })
 
   // Sort projects by dateStart
