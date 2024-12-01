@@ -1,67 +1,27 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import { remark } from 'remark'
-import html from 'remark-html'
-
-type ProjectData = {
-  id: string
-  lastUpdated: string
+// returns an array of file names without the .mdx extension
+export function getAllProjectIds() {
+  const requireMdx = require.context('../projects', true, /\.*$/)
+  return requireMdx
+    .keys()
+    .map((fileName) => fileName.substr(2).replace(/\.mdx$/, ''))
 }
 
-const projectsDirectory = path.join(process.cwd(), 'projects')
-
-export async function getAllProjectIds() {
-  const fileNames = fs.readdirSync(projectsDirectory)
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ''),
-      },
-    }
-  })
-}
-
-export async function getProjectsDataSortedByStartDate() {
-  const fileNames = fs.readdirSync(projectsDirectory)
-  const data = fileNames.map((fileName) => {
-    const id = fileName.replace(/\.md$/, '')
-    const fullPath = path.join(projectsDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-    const content = matter(fileContents)
-
-    // Only extract metadata
-    return {
-      id,
-      ...content.data,
-    } as ProjectData
-  })
-
-  // Sort projects by lastUpdated in descending order
-  return data.sort((a, b) => {
-    if (a.lastUpdated < b.lastUpdated) {
-      return 1
-    } else {
-      return -1
-    }
-  })
-}
-
-export async function getProjectData(id) {
-  const fullPath = path.join(projectsDirectory, `${id}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-  // Use gray-matter to parse the post metadata section
-  const content = matter(fileContents)
-
-  // Use remark to convert markdown into HTML string
-  const processedContent = await remark().use(html).process(content.content)
-  const contentHtml = processedContent.toString()
-
+export function getProjectData(id) {
+  const { meta } = require('../projects/' + id + '.mdx')
   return {
     id,
-    contentHtml,
-    ...content.data,
+    ...meta,
   }
+}
+
+export function getProjectsContent() {
+  const projectIds = getAllProjectIds()
+  return projectIds.map((id) => {
+    const { meta, default: content } = require('../projects/' + id + '.mdx')
+    return {
+      id,
+      data: meta,
+      content,
+    }
+  })
 }
