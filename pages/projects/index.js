@@ -14,9 +14,7 @@ export default function Projects({ projectsData }) {
               <InternalLink href={`/projects/${project.id}`}>
                 <Text fontWeight="600">{project.title}</Text>
               </InternalLink>
-              <Text>
-                ({project.dateStart} - {project.dateEnd})
-              </Text>
+              <Text>(Last updated: {project.lastUpdated})</Text>
             </HStack>
           </Box>
         ))}
