@@ -1,6 +1,9 @@
 ---
 title: wallpaper
 lastUpdated: July 2023
+tags:
+  - MATLAB
+  - image processing
 ---
 
 ### Description
