@@ -1,6 +1,7 @@
 // returns an array of file names without the .mdx extension
 export function getAllProjectIds() {
-  const requireMdx = require.context('../projects', true, /\.*$/)
+  // match ./***.mdx
+  const requireMdx = require.context('../projects', true, /\.\/.*.mdx$/)
   return requireMdx
     .keys()
     .map((fileName) => fileName.substr(2).replace(/\.mdx$/, ''))
