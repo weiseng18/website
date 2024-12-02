@@ -15,7 +15,7 @@ export function getProjectMetadata(id) {
   }
 }
 
-export function getProjectsContent() {
+export function getAllProjectContent() {
   const projectIds = getAllProjectIds()
   return projectIds.map((id) => {
     const { meta, default: content } = require('../projects/' + id + '.mdx')
