@@ -1,7 +1,7 @@
 import { Container, Divider, Heading, Text, VStack } from '@chakra-ui/react'
 import {
   getAllProjectIds,
-  getProjectData,
+  getProjectMetadata,
   getProjectsContent,
 } from '../../lib/projects'
 import InternalLink from '@components/InternalLink'
@@ -44,7 +44,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const projectData = getProjectData(params.id)
+  const projectData = getProjectMetadata(params.id)
   return {
     props: {
       projectData,

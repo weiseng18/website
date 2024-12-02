@@ -7,7 +7,7 @@ export function getAllProjectIds() {
     .map((fileName) => fileName.substr(2).replace(/\.mdx$/, ''))
 }
 
-export function getProjectData(id) {
+export function getProjectMetadata(id) {
   const { meta } = require('../projects/' + id + '.mdx')
   return {
     id,
