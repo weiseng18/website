@@ -5,11 +5,11 @@ const ExternalLink = ({ href, children, useExternalIcon = true }) => {
   if (useExternalIcon)
     return (
       <Link color="blue.500" href={href} isExternal>
-        <Flex alignItems="center">
-          <Text fontSize="md" fontWeight="400">
+        <Flex alignItems="center" display="inline">
+          <Text fontSize="md" fontWeight="400" as="span">
             {children}
           </Text>
-          <ExternalLinkIcon mx="4px" />
+          <ExternalLinkIcon ml="4px" />
         </Flex>
       </Link>
     )
