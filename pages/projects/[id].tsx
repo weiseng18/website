@@ -14,7 +14,7 @@ export default function Project({ projectData }) {
   const Content = project.content
 
   return (
-    <Container p={8}>
+    <Container p={8} maxWidth="80ch">
       <VStack spacing={4} align="start">
         <InternalLink href="/projects">← Back to projects</InternalLink>
         <Heading as="h1" size="xl">
