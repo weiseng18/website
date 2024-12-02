@@ -26,3 +26,14 @@ export function getAllProjectContent() {
     }
   })
 }
+
+export function getAllProjectMetadataSortedByLastUpdated() {
+  const allProjectMetadata = getAllProjectContent().map(
+    (project) => project.data
+  )
+  return allProjectMetadata.sort((a, b) => {
+    const timeA = new Date(a.lastUpdated).getTime()
+    const timeB = new Date(b.lastUpdated).getTime()
+    return timeB - timeA
+  })
+}

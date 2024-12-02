@@ -1,6 +1,6 @@
 import { Text, VStack } from '@chakra-ui/react'
 import MainContainer from '@components/MainContainer'
-import { getProjectsDataSortedByStartDate } from '../../lib/projects'
+import { getAllProjectMetadataSortedByLastUpdated } from '../../lib/projects'
 import ProjectLayout from '@components/ProjectLayout'
 
 export default function Projects({ projectsData }) {
@@ -17,7 +17,7 @@ export default function Projects({ projectsData }) {
 }
 
 export async function getStaticProps() {
-  const projectsData = await getProjectsDataSortedByStartDate()
+  const projectsData = await getAllProjectMetadataSortedByLastUpdated()
   return {
     props: {
       projectsData,
