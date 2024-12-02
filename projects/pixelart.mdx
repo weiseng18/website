@@ -1,0 +1,31 @@
+export const meta = {
+  title: 'pixelart',
+  lastUpdated: 'September 2020',
+  tags: ['Vanilla JavaScript'],
+}
+
+### Description
+
+The app allows you to create and animate pixel art in the browser.
+
+![Screenshot of the pixelart app](../pixelart/ui.png)
+
+It is quite feature-rich, with features such as
+
+- drawing with a pencil, eraser, or bucket fill
+- selecting colors from a palette
+- undo/redo
+- select and move a region
+- drawing a straight line with Bresenham's line algorithm
+
+You can also create multiple frames and animate them. This is the only part that I imported external libraries, because things like exporting to GIF or dealing with drag and drop of frames were not something I wanted to implement from scratch.
+
+Fun fact: all the tool icons were created using the app itself!
+
+### Inspiration
+
+This was my first somewhat complex project ever.
+
+While working on the <InternalLink href="./maze">maze</InternalLink> project, I decided to use a stickman sprite to represent the player in the 2D grid maze. I created my own sprite using [pixilart.com](https://www.pixilart.com/). I realized that a pixel art canvas is essentially a 2D array of colors, with features that are typically self-contained and modular. Recognizing the abundance of existing products in this space, I saw an opportunity to draw inspiration from their feature sets while focusing on the implementation — the area where I wanted to grow and develop my skills.
+
+export default ({ children }) => children
