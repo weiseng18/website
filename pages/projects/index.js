@@ -17,7 +17,7 @@ export default function Projects({ projectsData }) {
 }
 
 export async function getStaticProps() {
-  const projectsData = await getAllProjectMetadataSortedByLastUpdated()
+  const projectsData = getAllProjectMetadataSortedByLastUpdated()
   return {
     props: {
       projectsData,
