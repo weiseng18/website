@@ -28,9 +28,12 @@ export function getAllProjectContent() {
 }
 
 export function getAllProjectMetadataSortedByLastUpdated() {
-  const allProjectMetadata = getAllProjectContent().map(
-    (project) => project.data
-  )
+  const allProjectMetadata = getAllProjectContent().map((project) => {
+    return {
+      id: project.id,
+      ...project.data,
+    }
+  })
   return allProjectMetadata.sort((a, b) => {
     const timeA = new Date(a.lastUpdated).getTime()
     const timeB = new Date(b.lastUpdated).getTime()
