@@ -4,8 +4,8 @@ import {
   getProjectData,
   getProjectsContent,
 } from '../../lib/projects'
-import InternalLink from '../../components/InternalLink'
-import ProjectTagContainer from '../../components/ProjectTagContainer'
+import InternalLink from '@components/InternalLink'
+import ProjectTagContainer from '@components/ProjectTagContainer'
 
 export default function Project({ projectData }) {
   const project = getProjectsContent().find(
