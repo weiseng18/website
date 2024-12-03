@@ -1,4 +1,4 @@
-import { ProjectData } from 'types'
+import { ProjectContent, ProjectData } from 'types'
 
 /**
  * Returns all project IDs
@@ -26,7 +26,7 @@ export function getProjectMetadata(id: string): ProjectData {
 /**
  * Returns all project content
  */
-export function getAllProjectContent() {
+export function getAllProjectContent(): ProjectContent[] {
   const projectIds = getAllProjectIds()
   return projectIds.map((id) => {
     const { meta, default: content } = require('../projects/' + id + '.mdx')

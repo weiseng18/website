@@ -3,6 +3,12 @@ export type ProjectData = {
   meta: MDXMetadata
 }
 
+export type ProjectContent = {
+  id: string
+  meta: MDXMetadata
+  content: () => JSX.Element
+}
+
 export type MDXMetadata = {
   title: string
   lastUpdated: string
