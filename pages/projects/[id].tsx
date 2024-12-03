@@ -7,6 +7,7 @@ import {
 import InternalLink from '@components/InternalLink'
 import ProjectTagContainer from '@components/ProjectTagContainer'
 import { ProjectData } from 'types'
+import ProjectDeployment from '@components/ProjectDeployment'
 
 export default function Project({ projectData }: { projectData: ProjectData }) {
   const id = projectData.id
@@ -24,6 +25,7 @@ export default function Project({ projectData }: { projectData: ProjectData }) {
           {meta.title}
         </Heading>
         <Text>Last updated: {meta.lastUpdated}</Text>
+        {meta.deployment && <ProjectDeployment deployment={meta.deployment} />}
         <Text>Tech stack: {meta.techStack}</Text>
         {meta.tags.length > 0 && <ProjectTagContainer tags={meta.tags} />}
       </VStack>

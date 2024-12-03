@@ -2,6 +2,7 @@ import { VStack, Flex, Text, Tag, HStack } from '@chakra-ui/react'
 import InternalLink from './InternalLink'
 import { ProjectData } from '../types'
 import ProjectTagContainer from './ProjectTagContainer'
+import ProjectDeployment from './ProjectDeployment'
 
 const ProjectLayout = ({ project }: { project: ProjectData }) => {
   const id = project.id
@@ -22,6 +23,7 @@ const ProjectLayout = ({ project }: { project: ProjectData }) => {
         </InternalLink>
         <Text>(Last updated: {meta.lastUpdated})</Text>
       </Flex>
+      {meta.deployment && <ProjectDeployment deployment={meta.deployment} />}
       <HStack>
         <Tag bg="blue.200">{meta.techStack}</Tag>
         {meta.tags.length > 0 && <ProjectTagContainer tags={meta.tags} />}
