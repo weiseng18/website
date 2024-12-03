@@ -24,18 +24,6 @@ export function getProjectMetadata(id: string): ProjectData {
 }
 
 /**
- * Returns content for a particular project
- */
-export function getProjectContent(id: string): ProjectContent {
-  const { meta, default: content } = require('../projects/' + id + '.mdx')
-  return {
-    id,
-    meta,
-    content,
-  }
-}
-
-/**
  * Returns all project content
  */
 export function getAllProjectContent(): ProjectContent[] {
