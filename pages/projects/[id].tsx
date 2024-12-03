@@ -1,7 +1,7 @@
 import { Container, Divider, Heading, Text, VStack } from '@chakra-ui/react'
 import {
-  getAllProjectContent,
   getAllProjectIds,
+  getProjectContent,
   getProjectMetadata,
 } from '../../lib/projects'
 import InternalLink from '@components/InternalLink'
@@ -9,9 +9,9 @@ import ProjectTagContainer from '@components/ProjectTagContainer'
 import { ProjectData } from 'types'
 
 export default function Project({ projectData }: { projectData: ProjectData }) {
-  const project = getAllProjectContent().find(
-    (project) => project.id === projectData.id
-  )
+  const id = projectData.id
+
+  const project = getProjectContent(id)
 
   const meta = project.meta
   const Content = project.content
