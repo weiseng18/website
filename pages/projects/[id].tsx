@@ -6,11 +6,14 @@ import {
 } from '../../lib/projects'
 import InternalLink from '@components/InternalLink'
 import ProjectTagContainer from '@components/ProjectTagContainer'
+import { ProjectData } from 'types'
 
-export default function Project({ projectData }) {
+export default function Project({ projectData }: { projectData: ProjectData }) {
   const project = getAllProjectContent().find(
     (project) => project.id === projectData.id
   )
+
+  const meta = project.meta
   const Content = project.content
 
   return (
@@ -18,10 +21,10 @@ export default function Project({ projectData }) {
       <VStack spacing={4} align="start">
         <InternalLink href="/projects">← Back to projects</InternalLink>
         <Heading as="h1" size="xl">
-          {projectData.title}
+          {meta.title}
         </Heading>
-        <Text>Last updated: {projectData.lastUpdated}</Text>
-        <ProjectTagContainer tags={projectData.tags} isOdd={false} />
+        <Text>Last updated: {meta.lastUpdated}</Text>
+        <ProjectTagContainer tags={meta.tags} isOdd={false} />
       </VStack>
       <Divider my={4} />
       <div id="markdown-root">

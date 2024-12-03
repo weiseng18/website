@@ -12,6 +12,9 @@ const ProjectLayout = ({
 }) => {
   const bgColor = isOdd ? 'white' : 'gray.100'
 
+  const id = project.id
+  const meta = project.meta
+
   return (
     <VStack
       w="100%"
@@ -22,12 +25,12 @@ const ProjectLayout = ({
       spacing={4}
     >
       <Flex w="100%" justifyContent="space-between">
-        <InternalLink href={`/projects/${project.id}`}>
-          <Text fontWeight="600">{project.title}</Text>
+        <InternalLink href={`/projects/${id}`}>
+          <Text fontWeight="600">{meta.title}</Text>
         </InternalLink>
-        <Text>(Last updated: {project.lastUpdated})</Text>
+        <Text>(Last updated: {meta.lastUpdated})</Text>
       </Flex>
-      <ProjectTagContainer tags={project.tags} isOdd={isOdd} />
+      <ProjectTagContainer tags={meta.tags} isOdd={isOdd} />
     </VStack>
   )
 }

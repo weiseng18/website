@@ -19,7 +19,7 @@ export function getProjectMetadata(id: string): ProjectData {
   const { meta } = require('../projects/' + id + '.mdx')
   return {
     id,
-    ...meta,
+    meta,
   }
 }
 
@@ -32,7 +32,7 @@ export function getAllProjectContent() {
     const { meta, default: content } = require('../projects/' + id + '.mdx')
     return {
       id,
-      data: meta,
+      meta,
       content,
     }
   })
@@ -46,13 +46,13 @@ export function getAllProjectMetadataSortedByLastUpdated(): ProjectData[] {
     (project) => {
       return {
         id: project.id,
-        ...project.data,
+        meta: project.meta,
       }
     }
   )
   return allProjectMetadata.sort((a, b) => {
-    const timeA = new Date(a.lastUpdated).getTime()
-    const timeB = new Date(b.lastUpdated).getTime()
+    const timeA = new Date(a.meta.lastUpdated).getTime()
+    const timeB = new Date(b.meta.lastUpdated).getTime()
     return timeB - timeA
   })
 }
