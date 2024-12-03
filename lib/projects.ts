@@ -1,5 +1,9 @@
-// returns an array of file names without the .mdx extension
-export function getAllProjectIds() {
+import { ProjectData } from 'types'
+
+/**
+ * Returns all project IDs
+ */
+export function getAllProjectIds(): string[] {
   // match ./***.mdx
   const requireMdx = require.context('../projects', true, /\.\/.*.mdx$/)
   return requireMdx
@@ -7,7 +11,11 @@ export function getAllProjectIds() {
     .map((fileName) => fileName.substr(2).replace(/\.mdx$/, ''))
 }
 
-export function getProjectMetadata(id) {
+/**
+ * Returns metadata for a particular project
+ * @param id project ID
+ */
+export function getProjectMetadata(id: string): ProjectData {
   const { meta } = require('../projects/' + id + '.mdx')
   return {
     id,
@@ -15,6 +23,9 @@ export function getProjectMetadata(id) {
   }
 }
 
+/**
+ * Returns all project content
+ */
 export function getAllProjectContent() {
   const projectIds = getAllProjectIds()
   return projectIds.map((id) => {
@@ -27,13 +38,18 @@ export function getAllProjectContent() {
   })
 }
 
-export function getAllProjectMetadataSortedByLastUpdated() {
-  const allProjectMetadata = getAllProjectContent().map((project) => {
-    return {
-      id: project.id,
-      ...project.data,
+/**
+ * Returns all project metadata sorted by last updated
+ */
+export function getAllProjectMetadataSortedByLastUpdated(): ProjectData[] {
+  const allProjectMetadata: ProjectData[] = getAllProjectContent().map(
+    (project) => {
+      return {
+        id: project.id,
+        ...project.data,
+      }
     }
-  })
+  )
   return allProjectMetadata.sort((a, b) => {
     const timeA = new Date(a.lastUpdated).getTime()
     const timeB = new Date(b.lastUpdated).getTime()
