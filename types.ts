@@ -14,8 +14,10 @@ export type MDXMetadata = {
   lastUpdated: string
   tags: string[]
   techStack: string
-  deployment: {
-    type: string
-    url: string
-  }
+  deployment?: DeploymentInfo
+}
+
+export type DeploymentInfo = {
+  type: string
+  url: string
 }

@@ -1,7 +1,7 @@
 import { HStack } from '@chakra-ui/react'
 import ProjectTag from './ProjectTag'
 
-const ProjectTagContainer = ({ tags }) => {
+const ProjectTagContainer = ({ tags }: { tags: string[] }) => {
   return (
     <HStack>
       {tags &&
