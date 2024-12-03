@@ -7,10 +7,6 @@ import {
 import InternalLink from '@components/InternalLink'
 import ProjectTagContainer from '@components/project/ProjectTagContainer'
 import ProjectDeployment from '@components/project/ProjectDeployment'
-
-import path from 'path'
-import fs from 'fs'
-import { serialize } from 'next-mdx-remote/serialize'
 import MDXRemoteWrapper from '@components/mdx/MDXRemoteWrapper'
 
 export default function Project({ projectData, source }) {
@@ -50,14 +46,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const id = params.id as string
-  const filePath = path.join(process.cwd(), 'projects', id + '.mdx')
-  const source = fs.readFileSync(filePath, 'utf8')
-  const mdxSource = await serialize(source)
-
   return {
     props: {
       projectData: getProjectMetadata(id),
-      source: mdxSource,
+      source: await getProjectContent(id),
     },
   }
 }

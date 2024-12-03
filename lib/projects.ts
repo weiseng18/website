@@ -1,5 +1,10 @@
 import { ProjectContent, ProjectData } from 'types'
 
+import path from 'path'
+import fs from 'fs'
+import { serialize } from 'next-mdx-remote/serialize'
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
+
 /**
  * Returns all project IDs
  */
@@ -55,4 +60,16 @@ export function getAllProjectMetadataSortedByLastUpdated(): ProjectData[] {
     const timeB = new Date(b.meta.lastUpdated).getTime()
     return timeB - timeA
   })
+}
+
+/**
+ * Returns content for a particular project
+ */
+export async function getProjectContent(
+  id: string
+): Promise<MDXRemoteSerializeResult> {
+  const filePath = path.join(process.cwd(), 'projects', id + '.mdx')
+  const source = fs.readFileSync(filePath, 'utf8')
+  const mdxSource = await serialize(source)
+  return mdxSource
 }
