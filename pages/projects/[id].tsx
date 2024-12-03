@@ -24,6 +24,7 @@ export default function Project({ projectData }: { projectData: ProjectData }) {
           {meta.title}
         </Heading>
         <Text>Last updated: {meta.lastUpdated}</Text>
+        <Text>Tech stack: {meta.techStack}</Text>
         <ProjectTagContainer tags={meta.tags} isOdd={false} />
       </VStack>
       <Divider my={4} />

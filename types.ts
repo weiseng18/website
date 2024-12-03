@@ -13,4 +13,5 @@ export type MDXMetadata = {
   title: string
   lastUpdated: string
   tags: string[]
+  techStack: string
 }

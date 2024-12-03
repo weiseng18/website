@@ -30,6 +30,7 @@ const ProjectLayout = ({
         </InternalLink>
         <Text>(Last updated: {meta.lastUpdated})</Text>
       </Flex>
+      <Text>{meta.techStack}</Text>
       <ProjectTagContainer tags={meta.tags} isOdd={isOdd} />
     </VStack>
   )
