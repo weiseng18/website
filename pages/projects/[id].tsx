@@ -5,9 +5,9 @@ import {
   getProjectMetadata,
 } from '../../lib/projects'
 import InternalLink from '@components/InternalLink'
-import ProjectTagContainer from '@components/ProjectTagContainer'
+import ProjectTagContainer from '@components/project/ProjectTagContainer'
 import { ProjectData } from 'types'
-import ProjectDeployment from '@components/ProjectDeployment'
+import ProjectDeployment from '@components/project/ProjectDeployment'
 
 export default function Project({ projectData }: { projectData: ProjectData }) {
   const id = projectData.id

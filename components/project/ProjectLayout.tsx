@@ -1,6 +1,6 @@
 import { VStack, Flex, Text, Tag, HStack } from '@chakra-ui/react'
-import InternalLink from './InternalLink'
-import { ProjectData } from '../types'
+import InternalLink from '../InternalLink'
+import { ProjectData } from '../../types'
 import ProjectTagContainer from './ProjectTagContainer'
 import ProjectDeployment from './ProjectDeployment'
 

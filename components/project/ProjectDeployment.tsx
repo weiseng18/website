@@ -1,5 +1,5 @@
 import { HStack, Text } from '@chakra-ui/react'
-import ExternalLink from './ExternalLink'
+import ExternalLink from '../ExternalLink'
 
 const ProjectDeployment = ({ deployment }) => {
   return (

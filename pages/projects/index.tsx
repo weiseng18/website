@@ -1,7 +1,7 @@
 import { Text, VStack } from '@chakra-ui/react'
 import MainContainer from '@components/MainContainer'
 import { getAllProjectMetadataSortedByLastUpdated } from '../../lib/projects'
-import ProjectLayout from '@components/ProjectLayout'
+import ProjectLayout from '@components/project/ProjectLayout'
 
 export default function Projects({ projectsData }) {
   return (
