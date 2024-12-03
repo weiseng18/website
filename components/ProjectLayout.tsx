@@ -31,7 +31,9 @@ const ProjectLayout = ({
         <Text>(Last updated: {meta.lastUpdated})</Text>
       </Flex>
       <Text>{meta.techStack}</Text>
-      <ProjectTagContainer tags={meta.tags} isOdd={isOdd} />
+      {meta.tags.length > 0 && (
+        <ProjectTagContainer tags={meta.tags} isOdd={isOdd} />
+      )}
     </VStack>
   )
 }
