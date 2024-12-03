@@ -6,16 +6,15 @@ import {
 } from '../../lib/projects'
 import InternalLink from '@components/InternalLink'
 import ProjectTagContainer from '@components/project/ProjectTagContainer'
-import { ProjectData } from 'types'
 import ProjectDeployment from '@components/project/ProjectDeployment'
 
-export default function Project({ projectData }: { projectData: ProjectData }) {
-  const id = projectData.id
+import path from 'path'
+import fs from 'fs'
+import { serialize } from 'next-mdx-remote/serialize'
+import MDXRemoteWrapper from '@components/mdx/MDXRemoteWrapper'
 
-  const project = getProjectContent(id)
-
-  const meta = project.meta
-  const Content = project.content
+export default function Project({ projectData, source }) {
+  const meta = projectData.meta
 
   return (
     <Container p={8} maxWidth="80ch">
@@ -31,7 +30,7 @@ export default function Project({ projectData }: { projectData: ProjectData }) {
       </VStack>
       <Divider my={4} />
       <div id="markdown-root">
-        <Content />
+        <MDXRemoteWrapper source={source} />
       </div>
     </Container>
   )
@@ -50,10 +49,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const projectData = getProjectMetadata(params.id)
+  const id = params.id as string
+  const filePath = path.join(process.cwd(), 'projects', id + '.mdx')
+  const source = fs.readFileSync(filePath, 'utf8')
+  const mdxSource = await serialize(source)
+
   return {
     props: {
-      projectData,
+      projectData: getProjectMetadata(id),
+      source: mdxSource,
     },
   }
 }
