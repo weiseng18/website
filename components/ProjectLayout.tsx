@@ -3,15 +3,7 @@ import InternalLink from './InternalLink'
 import { ProjectData } from '../types'
 import ProjectTagContainer from './ProjectTagContainer'
 
-const ProjectLayout = ({
-  project,
-  isOdd,
-}: {
-  project: ProjectData
-  isOdd: boolean
-}) => {
-  const bgColor = isOdd ? 'white' : 'gray.100'
-
+const ProjectLayout = ({ project }: { project: ProjectData }) => {
   const id = project.id
   const meta = project.meta
 
@@ -20,7 +12,7 @@ const ProjectLayout = ({
       w="100%"
       alignItems="flex-start"
       key={project.id}
-      bg={bgColor}
+      bg="gray.100"
       p={4}
       spacing={4}
     >
@@ -31,9 +23,7 @@ const ProjectLayout = ({
         <Text>(Last updated: {meta.lastUpdated})</Text>
       </Flex>
       <Text>{meta.techStack}</Text>
-      {meta.tags.length > 0 && (
-        <ProjectTagContainer tags={meta.tags} isOdd={isOdd} />
-      )}
+      {meta.tags.length > 0 && <ProjectTagContainer tags={meta.tags} />}
     </VStack>
   )
 }

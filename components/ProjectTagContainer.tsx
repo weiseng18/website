@@ -1,12 +1,12 @@
 import { HStack } from '@chakra-ui/react'
 import ProjectTag from './ProjectTag'
 
-const ProjectTagContainer = ({ tags, isOdd }) => {
+const ProjectTagContainer = ({ tags }) => {
   return (
     <HStack>
       {tags &&
         tags.length > 0 &&
-        tags.map((tag) => <ProjectTag key={tag} tag={tag} isOdd={isOdd} />)}
+        tags.map((tag) => <ProjectTag key={tag} tag={tag} />)}
     </HStack>
   )
 }

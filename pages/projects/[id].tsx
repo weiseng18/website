@@ -25,9 +25,7 @@ export default function Project({ projectData }: { projectData: ProjectData }) {
         </Heading>
         <Text>Last updated: {meta.lastUpdated}</Text>
         <Text>Tech stack: {meta.techStack}</Text>
-        {meta.tags.length > 0 && (
-          <ProjectTagContainer tags={meta.tags} isOdd={false} />
-        )}
+        {meta.tags.length > 0 && <ProjectTagContainer tags={meta.tags} />}
       </VStack>
       <Divider my={4} />
       <div id="markdown-root">
